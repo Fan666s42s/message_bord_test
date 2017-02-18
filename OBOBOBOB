@@ -1,0 +1,22 @@
+
+[1mFrom:[0m /home/student/rails/MB2/app/controllers/posts_controller.rb @ line 44 PostsController#create:
+
+    [1;34m29[0m: [32mdef[0m [1;34mcreate[0m
+    [1;34m30[0m:   [1;34m# @post = Post.new(post_params)[0m
+    [1;34m31[0m: 
+    [1;34m32[0m:   
+    [1;34m33[0m: 
+    [1;34m34[0m:   
+    [1;34m35[0m:   [1;34m# respond_to do |format|[0m
+    [1;34m36[0m:   [1;34m#   if @post.save[0m
+    [1;34m37[0m:   [1;34m#     format.html { redirect_to @post, notice: 'Post was successfully created.' }[0m
+    [1;34m38[0m:   [1;34m#     format.json { render :show, status: :created, location: @post }[0m
+    [1;34m39[0m:   [1;34m#   else[0m
+    [1;34m40[0m:   [1;34m#     format.html { render :new }[0m
+    [1;34m41[0m:   [1;34m#     format.json { render json: @post.errors, status: :unprocessable_entity }[0m
+    [1;34m42[0m:   [1;34m#   end[0m
+    [1;34m43[0m:   [1;34m# end[0m
+ => [1;34m44[0m:   binding.pry
+    [1;34m45[0m: 
+    [1;34m46[0m: [32mend[0m
+
