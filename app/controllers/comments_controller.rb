@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
 
 # GET /posts/new
   def new
-    @comment = Comment.new
 
   end
 
@@ -13,8 +12,8 @@ class CommentsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @comment = Comment.new(post_params)
-
+    @comment = Comment.new(comment_params)
+    
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
@@ -58,7 +57,7 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.fetch(:comment, {})
+      params.require(:comment).permit(:content, :post_id)
     end
 
 end

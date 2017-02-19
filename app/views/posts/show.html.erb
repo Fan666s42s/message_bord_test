@@ -3,9 +3,23 @@
 <h2><%= @post.title%></h2><br>
 <h3><%= @post.content%></h3>
 
+
 <br>
 <br>
+留言列表
+<br>
+<% @comments.each do |comment| %>
 
+  <tr>      
+    <td><%= comment.content %></td>       
+    <td><%= link_to 'Edit', edit_comment_path(comment),class:"btn btn-warning" %></td>
+    <td><%= link_to 'Destroy', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
+  </tr>
+<% end %>
 
+<br>
+
+<br>
+<br>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

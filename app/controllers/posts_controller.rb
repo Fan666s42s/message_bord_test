@@ -11,6 +11,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @comments = Comment.where(post_id: params[:id])
+
   end
 
   # GET /posts/new
@@ -31,11 +33,17 @@ class PostsController < ApplicationController
     @post = Post.new(post_params) 
     @temparray = params[:interests]
 
+
+    if @temparray == nil
+      @temparray = ["5"]
+    end
+    
     respond_to do |format|
       if @post.save
 
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
+        
         for i in 0..(@temparray.size-1)
           Connection.create(post_id: @post.id,category_id: @temparray[i])
         end
