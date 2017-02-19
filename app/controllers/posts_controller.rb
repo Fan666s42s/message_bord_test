@@ -11,7 +11,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+
     @comments = Comment.where(post_id: params[:id])
+    @comments = @post.comments
+    @comment = Comment.new
 
   end
 
@@ -35,7 +38,7 @@ class PostsController < ApplicationController
 
 
     if @temparray == nil
-      @temparray = ["5"]
+      @temparray = ["1"]
     end
     
     respond_to do |format|

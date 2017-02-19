@@ -6,18 +6,37 @@
 
 <br>
 <br>
-留言列表
-<br>
-<% @comments.each do |comment| %>
 
-  <tr>      
-    <td><%= comment.content %></td>       
-    <td><%= link_to 'Edit', edit_comment_path(comment),class:"btn btn-warning" %></td>
-    <td><%= link_to 'Destroy', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
-  </tr>
+留言區:
+<br>
+
+<% @comments.each do |comment|%>
+  <div class="row">
+    <div class="col-md-6 well">
+        <p>
+          <%= comment.content %>
+        </p>
+        <br>
+      </div>
+    </div>
+  </div>
 <% end %>
 
+
+
+<h4>請留言:</h4>
+<%= form_for [@post, @comment] do |f| %>
+  <div class="row">
+    <%= f.text_area :content, rows: 3, class: 'col-md-4' %>
+    <div class="col-md-2">
+    <%= f.submit '留言', class: 'btn btn-primary' %>
+    </div>
+  </div>
 <br>
+<% end %>
+
+
+
 
 <br>
 <br>

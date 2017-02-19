@@ -3,8 +3,11 @@ Rails.application.routes.draw do
 
   root :to => 'posts#index'
 
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:create]
+  end
+
   resources :categories
   resources :connections
-  resources :comments
+
 end
